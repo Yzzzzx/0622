@@ -1,0 +1,49 @@
+1.xampp的使用
+	a.访问apache
+		浏览器中输入127.0.0.1
+	b.访问mysql
+		浏览器中输入127.0.0.1/phpmyadmin
+		phpmyadmin是一款bs架构软件，用于管理mysql的工具
+	c.设置环境变量(让系统可以找到mysql命令所在位置)
+		vim ~/.bash_profile
+		PATH=/Applications/XAMPP/bin:$PATH
+		export PATH
+		当前用户的家目录中执行(让环境变量生效)
+		source .bash_profile 
+	d.终端打开
+		前往--实用工具--终端
+	e.登录mysql
+		mysql
+			登录本地数据库
+		mysql -u root -p
+			管理员登录mysql
+		mysql -h 127.0.0.1 -u root -p
+			管理员登录IP为127.0.0.1的数据库
+	f.mysql基础
+		常说的数据库分为2部分，数据库软件，数据库数据
+		一个数据库软件中可以包含多个数据库的数据
+		mysql数据库是由表组成的
+		mysql的表是由数据组成的
+		基础命令(登录mysql之后实用)
+		show databases;
+			查看当前有哪些数据库
+		select database();
+			查看当前数据库的名字
+			null代表还没有选择数据库(空)
+		use mysql;
+			切换当前数据库为mysql
+		show tables;
+			查看当前数据库中有哪些表
+		select * from user;
+		select * from user \G;
+			查看user表中所有的数据
+
+
+
+
+
+
+
+
+
+
