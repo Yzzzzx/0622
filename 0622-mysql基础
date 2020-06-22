@@ -74,6 +74,70 @@
 			语法:drop table 表名;
 			需求:删除goods表表结构
 			drop table goods;
+		5>修改表结构
+			增加列
+				alter table goods add id int;
+			修改列
+				alter table goods modify id char(20);
+			删除列
+				 alter table goods drop column id;
+		6>约束
+			主键约束  列中的数据唯一，不能为空，每张表中只能有一个，主键主要是针对外键来说的
+			唯一约束  列中的数据唯一，可以为空，作为主键约束的补充
+			非空约束  列中的数据不能为空
+			检查约束  列中的数据是否满足条件
+			外键约束  列中的数据依赖于另外一张表中列的数据
+			语法:
+			create table 表(
+				列 数据类型 primary key,   #主键
+				列 数据类型 unique,        #唯一
+				列 数据类型 not null，      #非空
+				列 数据类型 check(检查条件)，#检查
+				列 数据类型 references 被参考表(被参考列)  #外键(参考)
+			);
+	i.SQL的分类
+		SQL:结构化查询语言
+			DDL:数据库定义语言  create alter drop truncate
+			DML:数据库操作语言  insert delete update
+			DCL:数据库控制语言  grant revoke
+			DQL:数据库查询语言  select
+	j.DML语句
+		1>数据的新增
+			字符、日期需要加单引号
+			数值类型直接使用
+			列和值一定要对应(位置、数据类型)
+			1)向表中指定列新增数据
+			语法:insert into 表(列1，列2) values(值1，值2);
+			需求:向goods表中新增数据，商品名称simida，价格250
+				insert into goods(gname,price) values('simida',250); 
+			2)向表中所有列新增数据
+			语法:insert into 表 values(值1，值2，值3....);
+			需求:向goods表中新增数据，商品名称haleshao，价格290，出厂日期 2000-01-01
+				insert into goods values('haleshao',290,'2000-01-01');
+		2>数据的修改
+			语法:update 表 set 列=值 where 条件;
+			如果不加where条件，默认修改的是整个列的数据
+			如果增加
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
