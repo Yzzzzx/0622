@@ -166,7 +166,31 @@ f.子查询练习
 	3)
 		select sn,sd from s where s# in (select s# from sc where c#!='C5');
 
-
+g.排序和分页
+	语法:select 列 from 表
+			where 条件
+				[group by 分组条件
+					having 分组后过滤条件]
+						order by 排序条件
+							limit 分页条件
+	1>排序
+		顺序  从小到大
+			order by 列;
+			order by 列 asc;
+		倒序  从大到小
+			order by 列 desc;
+		需求:查询ecs_goods表中分类id，本店售价，商品名称，按照本店售价从高到低进行排序
+			select cat_id,shop_price,goods_name from ecs_goods order by shop_price desc;
+		需求:查询ecs_goods表中分类id，本店售价，商品名称，按照分类id顺序排列，本店售价倒序排列
+			select cat_id,shop_price,goods_name from ecs_goods order by cat_id,shop_price desc;
+	2>分页
+		需求:查询ecs_goods表中前10行数据
+		select * from ecs_goods limit 10;
+		需求:查询ecs_goods表中10-20行数据
+		select cat_id,goods_id,goods_name from ecs_goods limit 10,10;
+补充:
+	avg()    平均值
+	count()  计数
 
 
 
