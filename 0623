@@ -41,6 +41,50 @@ b.内联查询
 		select g.goods_name from ecs_goods g,ecs_category c
 		where g.cat_id=c.cat_id
 		and c.cat_name='3G手机';
+	--2.jpg
+		1)select s.name from student s,achievement a where s.id=a.id and a.mark>85;
+		2)select count(*) from achievement where mark>=90;
+		3)insert into achievement values(7,80);
+		4)update achievement set mark=87 where id=3;
+		5)delete from student where name='Betty';
+		  delete from achievement where id=6;
+	--4.jpg
+		1)select s#,grade from sc where c#='C2';
+		2)select sname from s where sname like 'D%';
+		3)select s.s#,s.sname from s,sc,c
+			where s.s#=sc.s#
+			and   sc.c#=c.c#
+			and   c.cname='Maths';
+		4)select s# from sc where c# in ('C2','C4');
+	--1.jpg
+		1)select * from test1 where department='计算机系' and place='北京';
+		2)update test1 set department='信息学院' where department=‘计算机系’；
+		3)select t1.no,t1.name,t2.grade,t2.courses from test1 t1,test2 t2 where t1.no=t2.no
+		  and t2.grade>=75;
+c.导入sakila数据库
+	1.下载sakila样例数据库
+	2.解压压缩包
+	3.进入到解药后的文件夹(sakila-data.sql文件所在文件夹)
+		cd Downloads/sakila-db/
+	4.登录mysql
+		mysql -u root -p
+	5.导入sakila-schema.sql
+		source sakila-schema.sql;
+	6.导入sakila-data.sql
+		source sakila-data.sql;
+		
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
