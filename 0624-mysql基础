@@ -1,0 +1,83 @@
+1.作业
+	a.3.png
+		select * from dt_pay where salary>(select avg(salary) from dt_pay);
+		select * from dt_pay;
+		truncate table dt_pay;
+	b.5.bmp
+		select avg(english) from mark;
+		select m.math,c.name,c.address,c.telno from cust c,mark m
+		where c.studentno=m.studentno
+		and c.studentno in (11,22,33,44,55);
+	c.6.jpg
+		create table user(
+			userid  int(11) primary key,
+			username varchar2(20) not null,
+			password varchar2(20) not null,
+			crtime   date not null
+		);
+		insert into user values(1002,'admin','admin','2015-01-01');
+	d.2.png
+		select count(*) from table1;
+		select t2.学生家庭住址 from table1 t1,table2 t2 
+		where t1.学生id=t2.学生id
+		and t1.姓名 like '张%'
+		and t1.性别=‘女’
+		order by t1.姓名;
+	e.4.png
+		select xm,zkzh from tb_student where score>0 and score<5;
+		select * from tb_student where xm='张三' and score=5;
+		select s.姓名,c.成绩 from 学生表 s,成绩表 c
+		where s.准考证号=c.准考证号
+		and s.年龄 betwenn 20 and 35
+		order by s.准考证号 desc;
+	f.a.png
+		select avg(年龄) from 作者;
+		select z.姓名,t.图书名,t.出版社 from 图书 t,作者 z
+		where t.作者编号=z.作者编号
+		and t.年龄<(select avg(年龄) from 作者);
+2.分组查询
+	语法:
+		select 列 from 表
+			where 条件
+				group by 分组条件
+					having 分组后过滤条件
+						order by 排序条件
+							limit 分页条件
+	a.分组函数(聚合函数)
+		max() 	最大
+		min()	最小
+		avg() 	平均
+		sum()   求和
+		count() 计数
+		分组函数通常和分组一起使用，但是也可以单独使用
+		需求:查询ecs_goods表中最高本店售价
+			select max(shop_price) from ecs_goods;
+		需求：查询ecs_goods表中本店售价高于平均本店售价商品名称
+			select avg(shop_price) from ecs_goods
+			select goods_name from ecs_goods where shop_price>(select avg(shop_price) from ecs_goods);
+	b.分组
+		select cat_id from ecs_goods group by cat_id;
+		select cat_id,goods_name from ecs_goods group by cat_id;--x
+		select * from ecs_goods group by cat_id;                --x
+		需求:查询ecs_goods表中每种分类id对应多少个商品，要求显示分类id，商品数量
+		select  cat_id,count(goods_name) from ecs_goods group by cat_id;
+		需求:查询ecs_goods表中每种分类对应多少个商品，要求显示分类名称，商品数量
+		select c.cat_name,count(g.goods_name) from ecs_goods g,ecs_category c
+		where g.cat_id=c.cat_id
+		group by c.cat_name;
+	c.分组后过滤
+		where   分组前过滤，不能直接跟分组函数
+		having  分组后过滤，可以直接跟分组函数，有group by 才有having，如果没有group by 就没有having
+		需求:查询商品数量超过5的分类名称
+		select c.cat_name,count(g.goods_name) from ecs_goods g,ecs_category c
+		where g.cat_id=c.cat_id
+		group by c.cat_name
+		having count(g.goods_name)>5;
+
+
+
+
+
+
+
+
