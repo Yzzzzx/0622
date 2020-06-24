@@ -75,6 +75,65 @@
 		having count(g.goods_name)>5;
 
 
+	查询每个国家有多少个城市,要求显示国家名称,城市数量?
+	select co.country,count(c.city) from city c,country co
+	where c.country_id=co.country_id
+	group by co.country;
+
+	查询每个城市有多少个客户,要求显示城市名称,客户数量(计算客户id)
+	select  c.city,count(cu.customer_id) from city c,address a,customer cu
+	where c.city_id=a.city_id
+	and a.address_id=cu.address_id
+	group by c.city;
+
+	查询C开头的国家,每个国家有多少个城市
+	select co.country,count(c.city) from city c,country co
+	where c.country_id=co.country_id
+	group by co.country
+	having co.country like 'C%';
+
+	select co.country,count(c.city) from city c,country co
+	where c.country_id=co.country_id
+	and co.country like 'C%'
+	group by co.country;
+
+	城市数量超过30的国家名称
+
+	select co.country,count(c.city) from city c,country co
+	where c.country_id=co.country_id
+	group by co.country
+	having count(c.city)>30;
+
+3.练习讲解
+	8.jpg
+	1)create table store_information(
+		name char(10) not null,
+		sales int not null,
+		date  date not null
+	);
+	2)alter table store_information add Memo char(20);
+	3)update store_information set name=replace(name,'店','分店');
+	4)alter table store_information rename column name to store_name;
+	  alter table store_information change name store_name char(10);
+	5)
+	select store_name,date,avg(sales)  from store_name
+	group by store_name,date;
+	6）
+	select store_name from store_information
+	group by store_name
+	having sum(sales)>1000000;
+	华为.jpg
+	select * from student order by ssex desc;
+	select * from score where degree between 80 and 100;
+	1.jpg
+	select s.class,count(*) from stinfo s,grade g
+	where s.id=g.id
+	and g.nmath<60
+	group by s.class;
+	select s.class,s.name,g.math from stinfo s,grade g
+	where s.id=g.id
+	and g.math>90
+	order by s.class desc
 
 
 
