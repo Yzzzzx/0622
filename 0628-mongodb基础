@@ -1,0 +1,68 @@
+0.mongodb
+1-4:html+css
+5-6:js基础
+==========================
+mongodb
+1.mongodb的下载和安装
+	a.mongodb的下载
+		操作系统类型
+		操作系统位数
+		软件版本
+	b.安装配置
+		win下面配置环境变量(让系统可以找到mongodb的bin命令)
+		右键计算机--属性--高级系统设置--环境变量--系统变量--Path添加mongodb的bin文件夹的路径
+		;C:\Users\Administrator\Downloads\mongodb-win32-x86_64-2012plus-4.2.8\bin
+		确定X3
+2.mongodb的启动
+	a.mongodb的架构
+		c-----/----s
+		客户端    服务器
+		mongo    mongod
+	b.启动mongodb服务(命令提示符[win+r--cmd])
+		1>创建一个文件夹用于存放mongodb数据
+			md F:\data
+		2>启动mongodb服务
+			mongod --dbpath F:\data
+			mongod --dbpath F:\data --logpath F:\data\mongo.log
+			mongod mongodb的主服务
+			dbpath 存放数据的路径
+			logpath存放日志的位置
+		3>检查服务和端口
+			mongodb的主服务 mongod
+			mongodb的端口   27017
+			win+r--cmd--tasklist | find "mongod"
+				tasklist 查看当前系统所有进程
+				|        管道，前面的输出座位后面的输入
+				find     搜索
+			win+r--cmd--netstat -an | find "27017"
+				nestat -an 查看系统开放的所有端口
+3.mongodb的基础命令
+	mongodb    mysql
+	数据库     数据库
+	集合       表
+	文档       数据
+	a.mongodb的登录
+		mongo
+			登录本地test数据库
+		mongo 127.0.0.1/admin
+			登录IP为127.0.0.1的admin数据库
+		mongo 127.0.0.1:27017/admin
+			登录IP为127.0.0.1的端口27017的admin数据库
+	b.mongodb的基础命令
+		show databases
+		show dbs
+				查看当前软件中有哪些数据库
+		db
+				查看当前数据库的名字
+		use admin
+				切换当前数据库为admin
+		show tables
+		show collections
+				查看当前数据库中有哪些集合
+		db.system.version.find()
+				查看system.version集合中所有的文档
+
+
+
+
+
