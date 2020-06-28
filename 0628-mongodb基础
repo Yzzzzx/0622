@@ -61,8 +61,41 @@ mongodb
 				查看当前数据库中有哪些集合
 		db.system.version.find()
 				查看system.version集合中所有的文档
-
-
-
+4.CURD(增删改查)
+	文档的新增
+	db.xiyouji.insert({name:'5kong',age:100})
+	文档的查看
+	db.xiyouji.find({age:100})
+	文档的修改
+	db.xiyouji.update({age:100},{$set:{name:'whitebone'}})
+	文档的删除
+	db.xiyouji.remove({name:'8jie'})
+5.文档的新增
+	新增普通文档
+	db.xiyouji.insert({name:'shasir',age:180})
+	新增文档指定_id
+	db.xiyouji.insert({_id:0,name:'whitedrgonhorse',age:500})
+	新增多个文档
+	db.xiyouji.insert([{name:'哪吒'},{name:'sweety'},{name:'2dog'}])
+	新增内嵌文档
+	db.xiyouji.insert({name:'5kong',jingli:{kill:2500,hit:2}})
+6.文档的删除
+	删除指定文档
+	db.xiyouji.remove({name:'哪吒'})
+	删除所有文档
+	db.xiyouji.remove({})
+7.文档的修改
+	修改指定文档($set)
+	db.xiyouji.update({_id:0},{$set:{age:40}})
+	覆盖文档
+	db.xiyouji.update({_id:1},{age:300})
+	自增($inc)
+	db.xiyouji.update({name:'哪吒'},{$inc:{age:-10}})
+	键重命名($rename)
+	db.xiyouji.update({name:'2dog'},{$rename:{'age':'年龄'}})
+	删除键值对
+	db.xiyouji.update({_id:0},{$unset:{age:800}})
+	修改多个文档(multi)
+	db.xiyouji.update({},{$set:{age:800}},{multi:true})
 
 
