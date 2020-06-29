@@ -1,0 +1,70 @@
+======================
+day1.web基础+前端基础
+day2-4.5 html+css
+day4.5-day6 js
+======================
+HeyGor
+qq、wechat:914338492
+tel:18028768679
+======================
+1.常见的软件架构
+	a.常见的软件
+		QQ         c/s  
+		wechat     c/s  b/s
+		淘宝       c/s  b/s
+		抖音       c/s
+		LOL        c/s
+		王者荣耀    c/s
+		炉石传说    c/s  
+		高德       c/s  b/s
+		快播       c/s  b/s
+	b.单机软件
+		不需要网络就可以执行的应用程序
+		hackercon 
+		defcon
+	c.b/s架构软件
+		b:浏览器
+			IE      UC  夸克  360  世界之窗 傲游 猎豹 搜狗
+			google  开发
+			firefox 测试
+			safari
+		s:服务器
+			性能比较NB的电脑
+		测试的不同浏览器，不同版本的兼容性问题
+	d.c/s架构软件
+		c:客户端
+			pc端     台式机、笔记本、服务器
+			移动端    手机、ipad、智能终端
+		s:服务器
+		测试的不同操作系统，不同位数的安装和反安装(软件捆绑)
+2.前端和后端
+	a.前端
+		html 标记性语言 静态页面(服务器上什么样子，在网页上什么样子)
+		js   JavaScript 动态页面(动画，交互)，前端编程语言
+			 java       后端编程语言
+			 jsp        java server page
+			 框架:
+			 	Jquery  
+		css  样式表      懂代码      
+		UI   美工        
+	b.后端
+		操作系统
+			unix
+			linux
+			windows
+		web服务器
+			apache   不支持java 
+			nginx    轻量级web服务器(反向代理、负载均衡)
+			tomcat   java
+			iis      微软
+		数据库服务器
+			oracle   中大型企业
+			mysql    互联网公司
+	c.后端的组成(常见搭配)
+		操作系统       web服务器      数据库服务器
+		win             iis          sqlsever
+		               apache        mysql
+		               tomcat        mysql/oracle
+		linux          apache        mysql            (LAMP)
+		               nginx         mysql            (LNMP)
+		               tomcat        mysql/oracle
